@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, hsla(253, 16%, 7%, 1) 0, transparent 60%),
+      radial-gradient(at 50% 0%, hsla(225, 39%, 30%, 1) 0, transparent 60%),
+      radial-gradient(at 100% 0%, hsla(339, 49%, 30%, 1) 0, transparent 90%);
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    color: white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+
+  .glass-card {
+    @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl rounded-2xl;
+  }
+
+  .input-field {
+    @apply mt-1 block w-full rounded-lg border-white/10 bg-white/5 text-white placeholder-gray-400 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-3 transition-all duration-200 hover:bg-white/10;
+  }
+
+  .btn-primary {
+    @apply inline-flex justify-center transition-all duration-300 py-2.5 px-6 border border-transparent shadow-lg text-sm font-semibold rounded-lg text-white bg-indigo-600 hover:bg-indigo-500 hover:shadow-indigo-500/30 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+  }
+}
