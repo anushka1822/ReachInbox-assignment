@@ -45,7 +45,8 @@ export default function Home() {
 
     const fetchEmails = async () => {
         try {
-            const res = await fetch('http://localhost:3001/api/emails');
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+            const res = await fetch(`${apiUrl}/api/emails`);
             if (res.ok) {
                 const data = await res.json();
                 setEmails(data);
@@ -68,7 +69,8 @@ export default function Home() {
         setLoading(true);
 
         try {
-            const res = await fetch('http://localhost:3001/api/emails', {
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
+            const res = await fetch(`${apiUrl}/api/emails`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
