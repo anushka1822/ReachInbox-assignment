@@ -77,6 +77,7 @@ export default function Home() {
                 },
                 body: JSON.stringify({
                     ...formData,
+                    scheduledAt: formData.scheduledAt ? new Date(formData.scheduledAt).toISOString() : '',
                     sender: session?.user?.email || 'authenticated-user'
                 }),
             });
