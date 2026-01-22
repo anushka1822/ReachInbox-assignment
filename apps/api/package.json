@@ -8,6 +8,8 @@
     "worker:dev": "nodemon --exec ts-node src/worker/emailWorker.ts",
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:render": "npm run start & npm run worker:start",
+    "worker:start": "node dist/worker/emailWorker.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

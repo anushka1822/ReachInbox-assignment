@@ -13,6 +13,7 @@ interface Email {
     body: string;
     status: EmailStatus;
     createdAt: string;
+    scheduledAt: string;
     sender?: string;
     error?: string;
 }
@@ -119,7 +120,7 @@ export default function Home() {
                 </div>
             )}
 
-            <div className="max-w-6xl mx-auto px-4 py-8 space-y-10">
+            <div className="max-w-[1600px] mx-auto px-4 py-8 space-y-10">
                 {/* Header */}
                 <header className="glass rounded-xl p-4 flex justify-between items-center sticky top-4 z-40 bg-black/60">
                     <div className="flex items-center gap-3">
@@ -234,6 +235,7 @@ export default function Home() {
                                                 <th className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider bg-white/5 rounded-tl-lg">Status</th>
                                                 <th className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider bg-white/5">To</th>
                                                 <th className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider bg-white/5">Subject</th>
+                                                <th className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider bg-white/5">Scheduled</th>
                                                 <th className="px-6 py-4 text-left text-xs font-medium text-indigo-300 uppercase tracking-wider bg-white/5 rounded-tr-lg">Created</th>
                                             </tr>
                                         </thead>
@@ -252,6 +254,9 @@ export default function Home() {
                                                     </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-white transition-colors">{email.to}</td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-white transition-colors font-medium">{email.subject}</td>
+                                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-white transition-colors">
+                                                        {new Date(email.scheduledAt).toLocaleDateString()} <span className="text-xs opacity-60">{new Date(email.scheduledAt).toLocaleTimeString()}</span>
+                                                    </td>
                                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-300 group-hover:text-white transition-colors">
                                                         {new Date(email.createdAt).toLocaleDateString()} <span className="text-xs opacity-60">{new Date(email.createdAt).toLocaleTimeString()}</span>
                                                     </td>
